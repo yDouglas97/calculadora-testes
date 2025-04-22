@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Calculadora Simples</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Estilos do Jasmine -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.min.css">
+  <style>
+    .test-panel {
+      display: none;
+      margin-top: 20px;
+    }
+    .show-test-panel {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <button class="theme-toggle" onclick="toggleTheme()">🌞/🌙 Alternar Tema</button>
+  <button class="show-test-panel" onclick="toggleTestPanel()">Mostrar/Ocultar Resultados dos Testes</button>
+  <button class="retest-btn" onclick="runTests()">Reexecutar Testes</button>
+
+  <div class="calculator">
+    <input type="text" id="display" disabled />
+    <div class="buttons">
+      <button class="button" onclick="addToDisplay('1')">1</button>
+      <button class="button" onclick="addToDisplay('2')">2</button>
+      <button class="button" onclick="addToDisplay('3')">3</button>
+      <button class="button" onclick="addToDisplay('+')">+</button>
+
+      <button class="button" onclick="addToDisplay('4')">4</button>
+      <button class="button" onclick="addToDisplay('5')">5</button>
+      <button class="button" onclick="addToDisplay('6')">6</button>
+      <button class="button" onclick="addToDisplay('-')">-</button>
+
+      <button class="button" onclick="addToDisplay('7')">7</button>
+      <button class="button" onclick="addToDisplay('8')">8</button>
+      <button class="button" onclick="addToDisplay('9')">9</button>
+      <button class="button" onclick="addToDisplay('*')">*</button>
+
+      <button class="button" onclick="addToDisplay('0')">0</button>
+      <button class="button clear" onclick="clearDisplay()">C</button>
+      <button class="button equal" onclick="calculateResult()">=</button>
+      <button class="button" onclick="addToDisplay('/')">/</button>
+    </div>
+  </div>
+
+  <!-- Painel para exibir os resultados dos testes -->
+  <div id="test-panel" class="test-panel">
+    <div id="jasmine"></div>
+  </div>
+
+  <!-- Scripts do Jasmine (na ordem correta) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine-html.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/boot.js"></script>
+
+  <!-- Seu script principal e testes -->
+  <script src="script.js"></script>
+  <script src="tests.js"></script>
+
+  <!-- Script para controlar o painel e reexecutar os testes -->
+  <script>
+    // Função para mostrar ou esconder o painel de testes
+    function toggleTestPanel() {
+      const testPanel = document.getElementById('test-panel');
+      if (testPanel.style.display === 'none' || testPanel.style.display === '') {
+        testPanel.style.display = 'block';
+      } else {
+        testPanel.style.display = 'none';
+      }
+    }
+
+    // Função para reexecutar os testes
+    function runTests() {
+      // Isso força o Jasmine a rodar os testes novamente
+      jasmine.getEnv().execute();
+    }
+  </script>
+</body>
+</html>
