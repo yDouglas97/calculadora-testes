@@ -19,8 +19,6 @@
 </head>
 <body>
   <button class="theme-toggle" onclick="toggleTheme()">🌞/🌙 Alternar Tema</button>
-  <button class="show-test-panel" onclick="toggleTestPanel()">Mostrar/Ocultar Resultados dos Testes</button>
-  <button class="retest-btn" onclick="runTests()">Reexecutar Testes</button>
 
   <div class="calculator">
     <input type="text" id="display" disabled />
@@ -46,12 +44,6 @@
       <button class="button" onclick="addToDisplay('/')">/</button>
     </div>
   </div>
-
-  <!-- Painel para exibir os resultados dos testes -->
-  <div id="test-panel" class="test-panel">
-    <div id="jasmine"></div>
-  </div>
-
   <!-- Scripts do Jasmine (na ordem correta) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine-html.js"></script>
@@ -61,16 +53,10 @@
   <script src="js/script.js"></script>
   <script src="tests/tests.js"></script>
 
-  <!-- Script para controlar o painel e reexecutar os testes -->
   <script>
-    // Função para mostrar ou esconder o painel de testes
-    function toggleTestPanel() {
-      const testPanel = document.getElementById('test-panel');
-      if (testPanel.style.display === 'none' || testPanel.style.display === '') {
-        testPanel.style.display = 'block';
-      } else {
-        testPanel.style.display = 'none';
-      }
+    // Para controlar o tema
+    function toggleTheme() {
+        document.body.classList.toggle('dark-mode');
     }
 
     // Função para reexecutar os testes
