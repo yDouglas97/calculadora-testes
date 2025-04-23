@@ -26,7 +26,7 @@ describe("Calculadora Simples - Suíte de Testes", () => {
     addToDisplay("4") 
     addToDisplay("+") 
     addToDisplay("5") 
-    calculateResult() /
+    calculateResult() 
     // Verifica se o resultado é o esperado
     expect(document.getElementById("display").value).toBe("9")
   })
@@ -101,34 +101,3 @@ describe("Calculadora Simples - Suíte de Testes", () => {
     expect(document.getElementById("display").value).toBe("Entrada inválida. Digite apenas números.")
   })
 })
-
-/**
- * Funções auxiliares para os testes
- * Estas funções simulam o comportamento da calculadora para os testes
- */
-
-// Função para limpar o display
-function clearDisplay() {
-  document.getElementById("display").value = ""
-}
-
-// Função para adicionar valores ao display
-function addToDisplay(value) {
-  document.getElementById("display").value += value
-}
-
-// Função para calcular o resultado
-function calculateResult() {
-  try {
-    const result = eval(document.getElementById("display").value)
-    if (result === Number.POSITIVE_INFINITY || result === Number.NEGATIVE_INFINITY) {
-      document.getElementById("display").value = "Erro: divisão por zero não é permitida."
-    } else if (isNaN(result)) {
-      document.getElementById("display").value = "Entrada inválida. Digite apenas números."
-    } else {
-      document.getElementById("display").value = result
-    }
-  } catch (error) {
-    document.getElementById("display").value = "Entrada inválida. Digite apenas números."
-  }
-}
