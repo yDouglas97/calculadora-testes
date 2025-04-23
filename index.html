@@ -43,12 +43,14 @@
       <button class="button" onclick="addToDisplay('/')">/</button>
     </div>
   </div>
-  <!-- Scripts do Jasmine (na ordem correta) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine-html.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/boot.js"></script>
 
-  <!-- Seu script principal e testes -->
+    <!-- Scripts do Jasmine -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine.js"></script> <!-- Núcleo do Jasmine, contém funções como describe(), it(), e expect() -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/jasmine-html.js"></script> <!-- Cria a interface visual do Jasmine (resultados em verde/vermelho) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.6.0/boot.js"></script> <!-- Inicia a execução dos testes e carrega o ambiente de testes -->
+
+
+  <!-- Script principal e testes -->
   <script src="js/script.js"></script>
   <script src="tests/tests.js"></script>
 
@@ -56,7 +58,6 @@
 
     // Função para reexecutar os testes
     function runTests() {
-      // Isso força o Jasmine a rodar os testes novamente
       jasmine.getEnv().execute();
     }
   </script>
