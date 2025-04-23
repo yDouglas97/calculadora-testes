@@ -18,10 +18,9 @@
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌞/🌙 Alternar Tema</button>
 
   <div class="calculator">
-    <input type="text" id="display" disabled />
+    <input type="text" id="display" />
     <div class="buttons">
       <button class="button" onclick="addToDisplay('1')">1</button>
       <button class="button" onclick="addToDisplay('2')">2</button>
@@ -54,10 +53,6 @@
   <script src="tests/tests.js"></script>
 
   <script>
-    // Para controlar o tema
-    function toggleTheme() {
-        document.body.classList.toggle('dark-mode');
-    }
 
     // Função para reexecutar os testes
     function runTests() {
